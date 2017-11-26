@@ -18,21 +18,21 @@ export default class Pet extends React.Component {
   constructor(props) {
     super(props)
 
-    this.shouldRender = true
     this.state = {
       indicators: {
         experience: {
-          value: 1,
+          value: 5,
         },
         majesty: {
-          value: 1,
+          value: 5,
+          leaveReason: 'being bored'
         },
         productivity: {
-          value: 1,
-          leaveReason: ' impostor syndrome'
+          value: 5,
+          leaveReason: 'impostor syndrome'
         },
         salary: {
-          value: 1,
+          value: 25,
         },
         money: {
           value: 100,
@@ -61,10 +61,18 @@ export default class Pet extends React.Component {
           this.setState(prevState => {
             return {
              indicators:Object.assign(this.state.indicators,{
-               experience: {value: prevState.indicators.experience.value + 0.5},
-               majesty: {value: prevState.indicators.majesty.value + 1},
-               satisfaction: {value: prevState.indicators.satisfaction.value + 20},
-               satiety: {value: prevState.indicators.satiety.value - 10},
+               experience: {
+                leaveReason: prevState.indicators.experience.leaveReason,
+                value: prevState.indicators.experience.value + 0.5},
+               majesty: {
+                leaveReason: prevState.indicators.majesty.leaveReason,
+                value: prevState.indicators.majesty.value + 1},
+               satisfaction: {
+                leaveReason: prevState.indicators.satisfaction.leaveReason,
+                value: prevState.indicators.satisfaction.value + 20},
+               satiety: {
+                leaveReason: prevState.indicators.satiety.leaveReason,
+                value: prevState.indicators.satiety.value - 10},
               })
             }
           })
@@ -77,11 +85,21 @@ export default class Pet extends React.Component {
           this.setState(prevState => {
             return {
               indicators:Object.assign(this.state.indicators,{
-               money: {value: prevState.indicators.money.value - 30},
-               experience: {value: prevState.indicators.experience.value + 0.5},
-               productivity: {value: prevState.indicators.productivity.value + 1},
-               majesty: {value: prevState.indicators.majesty.value + 1},
-               satiety: {value: prevState.indicators.satiety.value - 20},
+               money: {
+                leaveReason: prevState.indicators.money.leaveReason,
+                value: prevState.indicators.money.value - 30},
+               experience: {
+                leaveReason: prevState.indicators.experience.leaveReason,
+                value: prevState.indicators.experience.value + 0.5},
+               productivity: {
+                leaveReason: prevState.indicators.productivity.leaveReason,
+                value: prevState.indicators.productivity.value + 1},
+               majesty: {
+                leaveReason: prevState.indicators.majesty.leaveReason,
+                value: prevState.indicators.majesty.value + 1},
+               satiety: {
+                leaveReason: prevState.indicators.satiety.leaveReason,
+                value: prevState.indicators.satiety.value - 20},
               })
             }
           })
@@ -94,10 +112,21 @@ export default class Pet extends React.Component {
            this.setState(prevState => {
             return {
               indicators:Object.assign(this.state.indicators,{
-               satiety: {value: Math.round(prevState.indicators.satiety.value / 2)},
-               experience: {value: prevState.indicators.experience.value + 0.5},
-               majesty: {value: prevState.indicators.majesty.value + 0.25},
-               satisfaction: {value: prevState.indicators.satisfaction.value + 15},
+               satiety: {
+                leaveReason: prevState.indicators.satiety.leaveReason,
+                value: Math.round(prevState.indicators.satiety.value / 3)},
+               experience: {
+                leaveReason: prevState.indicators.experience.leaveReason,
+                value: prevState.indicators.experience.value + 0.5},
+               majesty: {
+                leaveReason: prevState.indicators.majesty.leaveReason,
+                value: prevState.indicators.majesty.value + 0.25},
+               satisfaction: {
+                leaveReason: prevState.indicators.satisfaction.leaveReason,
+                value: prevState.indicators.satisfaction.value + 15},
+               money: {
+                leaveReason: prevState.indicators.money.leaveReason,
+                value: prevState.indicators.money.value - 25},
               })
             }
           })
@@ -110,9 +139,15 @@ export default class Pet extends React.Component {
           this.setState(prevState => {
             return {
               indicators:Object.assign(this.state.indicators,{
-               health: {value: prevState.indicators.health.value + 30},
-               satiety: {value: prevState.indicators.satiety.value + 30},
-               money: {value: prevState.indicators.money.value - 50},
+               health: {
+                leaveReason: prevState.indicators.health.leaveReason,
+                value: prevState.indicators.health.value + 30},
+               satiety: {
+                leaveReason: prevState.indicators.satiety.leaveReason,
+                value: prevState.indicators.satiety.value + 30},
+               money: {
+                leaveReason: prevState.indicators.money.leaveReason,
+                value: prevState.indicators.money.value - 50},
               })
             }
           })
@@ -125,9 +160,15 @@ export default class Pet extends React.Component {
           this.setState(prevState => {
             return {
               indicators:Object.assign(this.state.indicators,{
-               majesty: {value: prevState.indicators.majesty.value - 1},
-               money: {value: prevState.indicators.money.value + prevState.indicators.salary.value*2},
-               satisfaction: {value: prevState.indicators.satisfaction.value - 25},
+               majesty: {
+                leaveReason: prevState.indicators.majesty.leaveReason,
+                value: prevState.indicators.majesty.value - 1},
+               money: {
+                leaveReason: prevState.indicators.money.leaveReason,
+                value: prevState.indicators.money.value + prevState.indicators.salary.value*2},
+               satisfaction: {
+                leaveReason: prevState.indicators.satisfaction.leaveReason,
+                value: prevState.indicators.satisfaction.value - 25},
               })
             }
           })
@@ -140,13 +181,27 @@ export default class Pet extends React.Component {
           this.setState(prevState => {
             return {
               indicators:Object.assign(this.state.indicators,{
-               experience: {value: prevState.indicators.experience.value + 2},
-               majesty: {value: prevState.indicators.majesty.value + 2},
-               salary: {value: prevState.indicators.salary.value + 10},
-               satisfaction: {value: Math.round(prevState.indicators.satisfaction.value / 2)},
-               satiety: {value: Math.round(prevState.indicators.satiety.value / 2)},
-               money: {value: prevState.indicators.money.value + prevState.indicators.salary.value*2},
-               health: {value: prevState.indicators.health.value - 20},
+               experience: {
+                leaveReason: prevState.indicators.experience.leaveReason,
+                value: prevState.indicators.experience.value + 2},
+               majesty: {
+                leaveReason: prevState.indicators.majesty.leaveReason,
+                value: prevState.indicators.majesty.value + 2},
+               salary: {
+                leaveReason: prevState.indicators.salary.leaveReason,
+                value: prevState.indicators.salary.value + 10},
+               satisfaction: {
+                leaveReason: prevState.indicators.satisfaction.leaveReason,
+                value: Math.round(prevState.indicators.satisfaction.value / 2)},
+               satiety: {
+                leaveReason: prevState.indicators.satiety.leaveReason,
+                value: Math.round(prevState.indicators.satiety.value / 2)},
+               money: {
+                leaveReason: prevState.indicators.money.leaveReason,
+                value: prevState.indicators.money.value + prevState.indicators.salary.value*2},
+               health: {
+                leaveReason: prevState.indicators.health.leaveReason,
+                value: prevState.indicators.health.value - 20},
               })
             }
           })
@@ -159,11 +214,18 @@ export default class Pet extends React.Component {
           this.setState(prevState => {
             return {
               indicators:Object.assign(this.state.indicators,{
-               money: {value: prevState.indicators.money.value / 2},
-               satisfaction: {value: prevState.indicators.satisfaction.value + 60},
-               health: {value: prevState.indicators.health.value - 10},
-               productivity: {value: prevState.indicators.productivity.value * 2},
-
+               money: {
+                leaveReason: prevState.indicators.money.leaveReason,
+                value: prevState.indicators.money.value / 2},
+               satisfaction: {
+                leaveReason: prevState.indicators.satisfaction.leaveReason,
+                value: prevState.indicators.satisfaction.value + 60},
+               health: {
+                leaveReason: prevState.indicators.health.leaveReason,
+                value: prevState.indicators.health.value - 10},
+               productivity: {
+                leaveReason: prevState.indicators.productivity.leaveReason,
+                value: prevState.indicators.productivity.value * 2},
               })
             }
           })
@@ -172,11 +234,9 @@ export default class Pet extends React.Component {
       },
       leave: {
         name: 'You left programming because of',
-        // gif: require('./assets/gifs/leave.gif'),
-        action: reason => `${this.name} ${reason}`
+        action: e => console.log(this.state)
       }
     }
-
   }
 
 
@@ -199,31 +259,34 @@ export default class Pet extends React.Component {
         </Grid>)
   }
 
-  getLevelImage() {
-    if (this.state.indicators.experience.value < 3) {
-      return 'junior.png'
-    } else if (this.state.indicators.experience.value < 10) {
-      return 'middle.png'
-    } else return 'senior.jpg'
-  }
-
   renderUser() {
     return (<Grid xs={12} md={6} lg={4} item={true} id="actions">
           <Typography type={'display3'} color="primary" align="center" paragraph={true}>
             You
           </Typography>
-            <img style={{width: '100%'}} src={this.state.actionGif || require(`./assets/${this.getLevelImage()}`)} />
+            <img style={{width: '100%'}} src={this.state.actionGif || require('./assets/junior.png')} />
 
         </Grid>)
   }
 
   doAction(action) {
-    // console.log(this.state)
     action.action()
     this.setState(prevState => Object.assign(prevState, {
       actionGif: action.gif
     }))
 
+  }
+
+  isWorking() {
+    var indicators = Object.keys(this.state.indicators)
+    for (let i in indicators) {
+      if (this.state.indicators[indicators[i]].value <= 0) {
+
+        return {willRender: false,reason: this.state.indicators[indicators[i]].leaveReason}
+      }
+    }
+
+    return {willRender: true}
   }
 
   renderActions() {
@@ -246,7 +309,8 @@ export default class Pet extends React.Component {
   }
 
   render() {
-    return (
+    console.log(this.isWorking())
+    return this.isWorking().willRender ? (
       <div id="Pet" style={{padding: 20}}>
       <Grid container alignItems={'stretch'}>
         {this.renderData()}
@@ -254,6 +318,6 @@ export default class Pet extends React.Component {
         {this.renderActions()}
       </Grid>
       </div>
-    )
+    ) : <Typography type="display4" align="center">{`You left programming beacuse of ${this.isWorking().reason}`}</Typography>
   }
 }
